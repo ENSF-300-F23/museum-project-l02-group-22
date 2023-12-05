@@ -1,5 +1,7 @@
 # database_manager.py
 
+
+
 import mysql.connector
 
 class DatabaseManager:
@@ -12,11 +14,13 @@ class DatabaseManager:
         )
         self.cursor = self.connection.cursor()
 
-    def execute_query(self, query):
-        self.cursor.execute(query)
+    def execute_query(self, query, values=None):
+        self.cursor.execute(query, values)
         self.connection.commit()
 
-    # Add other database-related methods here
+    def fetch_data(self, query, values=None):
+        self.cursor.execute(query, values)
+        return self.cursor.fetchall()
 
     def __del__(self):
         self.cursor.close()
