@@ -1,5 +1,6 @@
 # main.py
 
+
 from database_manager import DatabaseManager
 from user_manager import UserManager
 from art_object_manager import ArtObjectManager
